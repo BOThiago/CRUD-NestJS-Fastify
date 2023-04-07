@@ -7,67 +7,143 @@
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
     <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
+
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# API CRUD de Produtos com NestJS e Fastify
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Esta é uma API simples para gerenciar produtos, utilizando NestJS como framework e Fastify como servidor HTTP. A API suporta as operações básicas de CRUD (Create, Read, Update e Delete).
 
-## Installation
+## Índice
 
-```bash
-$ npm install
-```
+Requisitos
 
-## Running the app
+Instalação
 
-```bash
-# development
-$ npm run start
+Execução
 
-# watch mode
-$ npm run start:dev
+Endpoints
 
-# production mode
-$ npm run start:prod
-```
+## Requisitos
 
-## Test
+Node.js v14.x ou superior
+npm v6.x ou superior
+CLI do NestJS v8.x ou superior
 
-```bash
-# unit tests
-$ npm run test
+## Instalação
 
-# e2e tests
-$ npm run test:e2e
+Clone este repositório:
 
-# test coverage
-$ npm run test:cov
-```
+git clone https://github.com/seu_usuario/products-api.git
 
-## Support
+Navegue até o diretório do projeto:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+cd products-api
 
-## Stay in touch
+Instale as dependências:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+npm install
 
-## License
+## Execução
 
-Nest is [MIT licensed](LICENSE).
+Para iniciar o servidor, execute o seguinte comando:
+
+npm run start
+
+> O servidor estará disponível em http://localhost:3000.
+
+# Endpoints
+
+#### Adicionar produto
+
+- URL: /products
+
+- Método: POST
+
+- Body:
+
+| Campo | Tipo | Descrição |
+| name | String | Nome do produto |
+| description | String | Descrição do produto |
+| price | Number | Preço do produto |
+
+- Resposta bem-sucedida:
+
+> Código: 201 Created
+> Conteúdo: { id: "produto_id" }
+
+#### Listar produtos
+
+- URL: /products
+
+- Método: GET
+
+* Resposta bem-sucedida:
+
+> Código: 200 OK
+> Conteúdo: [{ id: "produto_id", name: "nome", description: "descrição", price: 99.99 }]
+
+#### Obter produto por ID
+
+- URL: /products/:id
+
+- Método: GET
+
+- URL Params: id=[string]
+
+* Resposta bem-sucedida:
+
+> Código: 200 OK
+> Conteúdo: { id: "produto_id", name: "nome", description: "descrição", price: 99.99 }
+
+- Resposta com falha:
+
+> Código: 404 Not Found
+> Conteúdo: { message: "Product not found", statusCode: 404 }
+
+#### Atualizar produto
+
+- URL: /products/:id
+
+- Método: PATCH
+
+- URL Params: id=[string]
+
+- Body:
+
+| Campo | Tipo | Descrição |
+| name | String | Nome do produto |
+| description | String | Descrição do produto |
+| price | Number | Preço do produto |
+
+- Resposta bem-sucedida:
+
+> Código: 204 No Content
+
+- Resposta com falha:
+
+Código: 404 Not Found
+
+> Conteúdo: { message: "Product not found", statusCode: 404 }
+
+#### Excluir produto
+
+- URL: /products/:id
+
+- Método: DELETE
+
+- URL Params: id=[string]
+
+* Resposta bem-sucedida:
+
+> Código: 204 No Content
+
+- Resposta com falha:
+
+> Código: 404 Not Found
+> Conteúdo: { message: "Product not found", statusCode: 404 }
+
+## Considerações finais
+
+Esta API é um exemplo básico de como criar uma API CRUD usando NestJS e Fastify. Para melhorar esta API, considere adicionar validação, autenticação e integração com um banco de dados.
