@@ -35,7 +35,7 @@ CLI do NestJS v8.x ou superior
 
 Clone este repositório:
 
-git clone https://github.com/seu_usuario/products-api.git
+git clone https://github.com/BOThiago/CRUD-NestJS-Fastify
 
 Navegue até o diretório do projeto:
 
