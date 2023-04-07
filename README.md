@@ -63,10 +63,11 @@ npm run start
 
 - Body:
 
-| Campo | Tipo | Descrição |
-| name | String | Nome do produto |
+| Campo       | Tipo   | Descrição            |
+| ----------- | ------ | -------------------- |
+| name        | String | Nome do produto      |
 | description | String | Descrição do produto |
-| price | Number | Preço do produto |
+| price       | Number | Preço do produto     |
 
 - Resposta bem-sucedida:
 
@@ -112,10 +113,11 @@ npm run start
 
 - Body:
 
-| Campo | Tipo | Descrição |
-| name | String | Nome do produto |
+| Campo       | Tipo   | Descrição            |
+| ----------- | ------ | -------------------- |
+| name        | String | Nome do produto      |
 | description | String | Descrição do produto |
-| price | Number | Preço do produto |
+| price       | Number | Preço do produto     |
 
 - Resposta bem-sucedida:
 
