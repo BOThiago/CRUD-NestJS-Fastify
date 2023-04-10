@@ -5,147 +5,129 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
+# Product CRUD API with NestJS and Fastify
 
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This is a simple API to manage products, using NestJS as the framework and Fastify as the HTTP server. The API supports basic CRUD (Create, Read, Update, and Delete) operations.
 
-# API CRUD de Produtos com NestJS e Fastify
+## Table of Contents
 
-Esta é uma API simples para gerenciar produtos, utilizando NestJS como framework e Fastify como servidor HTTP. A API suporta as operações básicas de CRUD (Create, Read, Update e Delete).
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Execution](#execution)
+- [Endpoints](#endpoints)
 
-## Índice
+## Requirements
 
-Requisitos
+- Node.js v14.x or higher
+- npm v6.x or higher
+- NestJS CLI v8.x or higher
 
-Instalação
+## Installation
 
-Execução
+1. Clone this repository:
 
-Endpoints
+> git clone https://github.com/BOThiago/CRUD-NestJS-Fastify
 
-## Requisitos
+2. Navigate to the project directory:
 
-Node.js v14.x ou superior
-npm v6.x ou superior
-CLI do NestJS v8.x ou superior
+> cd products-api
 
-## Instalação
+3. Install dependencies:
 
-Clone este repositório:
+> npm install
 
-git clone https://github.com/BOThiago/CRUD-NestJS-Fastify
 
-Navegue até o diretório do projeto:
+## Execution
 
-cd products-api
+To start the server, run the following command:
 
-Instale as dependências:
+> npm run start
 
-npm install
+> The server will be available at http://localhost:3000.
 
-## Execução
+## Endpoints
 
-Para iniciar o servidor, execute o seguinte comando:
-
-npm run start
-
-> O servidor estará disponível em http://localhost:3000.
-
-# Endpoints
-
-#### Adicionar produto
+### Add Product
 
 - URL: /products
-
-- Método: POST
-
+- Method: POST
 - Body:
 
-| Campo       | Tipo   | Descrição            |
-| ----------- | ------ | -------------------- |
-| name        | String | Nome do produto      |
-| description | String | Descrição do produto |
-| price       | Number | Preço do produto     |
+  | Field       | Type   | Description          |
+  | ----------- | ------ | -------------------- |
+  | name        | String | Name of the product   |
+  | description | String | Description of product|
+  | price       | Number | Price of the product  |
 
-- Resposta bem-sucedida:
+- Successful Response:
 
-> Código: 201 Created
-> Conteúdo: { id: "produto_id" }
+> Code: 201 Created
+> Content: { id: "product_id" }
 
-#### Listar produtos
+### List Products
 
 - URL: /products
+- Method: GET
+- Successful Response:
 
-- Método: GET
+> Code: 200 OK
+> Content: [{ id: "product_id", name: "name", description: "description", price: 99.99 }]
 
-* Resposta bem-sucedida:
 
-> Código: 200 OK
-> Conteúdo: [{ id: "produto_id", name: "nome", description: "descrição", price: 99.99 }]
-
-#### Obter produto por ID
-
-- URL: /products/:id
-
-- Método: GET
-
-- URL Params: id=[string]
-
-* Resposta bem-sucedida:
-
-> Código: 200 OK
-> Conteúdo: { id: "produto_id", name: "nome", description: "descrição", price: 99.99 }
-
-- Resposta com falha:
-
-> Código: 404 Not Found
-> Conteúdo: { message: "Product not found", statusCode: 404 }
-
-#### Atualizar produto
+### Get Product by ID
 
 - URL: /products/:id
-
-- Método: PATCH
-
+- Method: GET
 - URL Params: id=[string]
 
+- Successful Response:
+
+> Code: 200 OK
+> Content: { id: "product_id", name: "name", description: "description", price: 99.99 }
+
+- Failed Response:
+
+> Code: 404 Not Found
+> Content: { message: "Product not found", statusCode: 404 }
+
+### Update Product
+
+- URL: /products/:id
+- Method: PATCH
+- URL Params: id=[string]
 - Body:
 
-| Campo       | Tipo   | Descrição            |
+| Field       | Type   | Description          |
 | ----------- | ------ | -------------------- |
-| name        | String | Nome do produto      |
-| description | String | Descrição do produto |
-| price       | Number | Preço do produto     |
+| name        | String | Name of the product   |
+| description | String | Description of product|
+| price       | Number | Price of the product  |
 
-- Resposta bem-sucedida:
+- Successful Response:
 
-> Código: 204 No Content
+> Code: 204 No Content
 
-- Resposta com falha:
+- Failed Response:
 
-Código: 404 Not Found
+> Code: 404 Not Found
+> Content: { message: "Product not found", statusCode: 404 }
 
-> Conteúdo: { message: "Product not found", statusCode: 404 }
 
-#### Excluir produto
+### Delete Product
 
 - URL: /products/:id
-
-- Método: DELETE
-
+- Method: DELETE
 - URL Params: id=[string]
 
-* Resposta bem-sucedida:
+- Successful Response:
 
-> Código: 204 No Content
+> Code: 204 No Content
 
-- Resposta com falha:
+- Failed Response:
 
-> Código: 404 Not Found
-> Conteúdo: { message: "Product not found", statusCode: 404 }
+> Code: 404 Not Found
+> Content: { message: "Product not found", statusCode: 404 }
 
-## Considerações finais
+## Conclusion
 
-Esta API é um exemplo básico de como criar uma API CRUD usando NestJS e Fastify. Para melhorar esta API, considere adicionar validação, autenticação e integração com um banco de dados.
+This API is a basic example of how to create a CRUD API using NestJS and Fastify. To improve this API, consider adding validation, authentication, and integration with a database.
